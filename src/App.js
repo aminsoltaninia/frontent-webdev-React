@@ -1,57 +1,43 @@
 import React from 'react';
-
-import  {Navbar, NavbarBrand} from 'reactstrap';
-import Menu from './components/MenueComponent';
+import Main from './components/MainComponent';
 import './App.css';
-import {Dishes} from './shared/dishes';
+import {BrowserRouter} from 'react-router-dom'
 
 
-// function App() {
-//   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    //   <body>
-    //     <h1>amin</h1>
-    //   </body>
-    // </div>
-//   );
-// }
+class App extends React.Component {
 
-class App extends React.Component{
+    static getDerivedStateFromProps() {
+        console.log('get drive App')
+        return null
+    }
     
-   constructor(props){
-       super(props);
-       this.state = {
-           dishes : Dishes 
-       }
-   } 
-  
-   render(){
+    shouldComponentUpdate(){
+        console.log('should update App')
+        return true
+    }
+      
+   
 
-     return(
-      <div >
-          <Navbar dark color="primary">
-              <div className="container"> 
-                  <NavbarBrand href="/">Fantoni store</NavbarBrand>
-              </div>     
-          </Navbar>
-          <Menu dishes={this.state.dishes}/>
-      </div>
-     )
-   }
+    render() {
+        console.log("render App")
+        return (
+           <BrowserRouter>
+             <div >
+                <Main />
+             </div>
+           </BrowserRouter> 
+          
+        )
+    }
+     
+    getSnapshotBeforeUpdate(){
+        console.log('get snapshot APP')
+        return null
+    }
+
+    componentDidMount() {
+        console.log("did mount App")
+    }
 }
 
 export default App;

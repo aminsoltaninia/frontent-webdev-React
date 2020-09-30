@@ -3,44 +3,12 @@ export const Dishes =  [
     {
       id: '0',
       name: 'aaaaa',
-      image: 'assets/images/139300686.jpg',
+      image: 'assets/images/closeup-artificial-colorful-flower-transparent-glass-bottle-wood-chair-garden-view-background-139300686.jpg',
       category: 'mains',
       featured: true,
       label: 'Hot',
       price: '4.99',
-      description: 'this is first',
-      comment : [
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-      ]
+      description: 'this is first'
     },
     {
       id: '1',
@@ -51,38 +19,7 @@ export const Dishes =  [
       label: 'notHot',
       price: '3.05',
       description: 'this is second',
-      comment : [
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-      ]
+    
     },
     {
       id: '2',
@@ -93,38 +30,7 @@ export const Dishes =  [
       label: 'melo',
       price: '4.09',
       description: 'this is third',
-      comment : [
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-      ]
+   
     },
     {
       id: '3',
@@ -135,37 +41,6 @@ export const Dishes =  [
       label: 'new',
       price: '4.99',
       description: 'this is forth',
-      comment : [
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-          {
-              rating : 4.2,
-              comment : '',
-              author : '',
-              date : ''
-          },
-      ]
+    
     }
    ]
