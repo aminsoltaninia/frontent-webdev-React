@@ -3,7 +3,8 @@ import  Header from '../components/header'
 import Menu from './MenueComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
-import  DishDetail from  './DishDetailComponent'
+import  DishDetail from  './DishDetailComponent';
+import AboutUs from '../components/AboutComponent';
 import Footer from '../components/footer'
 import { Dishes } from '../shared/dishes';
 import {Promotions} from '../shared/promotions';
@@ -67,6 +68,7 @@ class Main extends React.Component {
                       <Route exact path="/menu" exact component={()=> <Menu dishes={this.state.dishes}/>} />
                       <Route path="/menu/:amin" component={DishWithID}/>
                       <Route exact path="/ContactUS" component={Contact} />
+                      <Route path="/AboutUS" component={()=> <AboutUs leaders = {this.state.leaders} />} />
                       <Redirect  to="/home"/>
                   </Switch>
                 
