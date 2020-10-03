@@ -2,6 +2,7 @@ import React from 'react';
 import Comment from './CommentComponent'
 import { Card, CardImg,  CardText, CardBody, CardTitle, Breadcrumb , BreadcrumbItem  } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import {Loading} from './LoadingComponent'
 
 // class DishDetail extends React.Component{
 
@@ -75,10 +76,29 @@ import {Link} from 'react-router-dom';
 // }
 
 function DishDetail(props){
-
-    const renderDish = (dish,comments)=>{
-       
-        if (dish != null) {
+    console.log(props)
+    const renderDish = (dish ,props ,comments,addComment)=>{
+        if(props.dishesLoading) {
+            return (
+                 <div className="container">
+                     <div className="row">
+                        <Loading/>
+                     </div>
+                     
+                 </div>
+            )
+        }
+        else if(props.dishesErrMess){
+            return (
+                <div className="container">
+                    <div className="row">
+                        <h4>{props.dishesErrMess}</h4>
+                    </div>
+                    
+                </div>
+           )
+        }
+        else if (dish != null) {
             return (
                
                       <div className="row">
@@ -91,7 +111,10 @@ function DishDetail(props){
                             </CardBody>
                         </Card>
                    
-                        <Comment  selectedCom={comments}/>
+                        <Comment  selectedCom={comments} 
+                                  Loading={props.dishesLoading} 
+                                  ErrMess = {props.dishesErrMess}
+                                  addComment={addComment} dishId = {dish.id}/>
                     </div>
                 
                 
@@ -122,7 +145,7 @@ function DishDetail(props){
                </div>
             </div>
            
-            {renderDish(props.dish , props.comments)}
+            {renderDish(props.dish, props , props.comments , props.addComment)}
         </div>
     )
 }

@@ -6,24 +6,36 @@ import Contact from './ContactComponent';
 import  DishDetail from  './DishDetailComponent';
 import AboutUs from '../components/AboutComponent';
 import Footer from '../components/footer'
-import { Dishes } from '../shared/dishes';
-import {Promotions} from '../shared/promotions';
-import {Leaders} from '../shared/leaders';
-import {Comments} from '../shared/comment'
-import {Switch , Route , Redirect } from 'react-router-dom'
+import {Switch , Route , Redirect, withRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {addComment ,fetchDishes} from '../redux/Actioncreater';
+
+const mapStateToProps = (state)=>{
+      return { 
+          dishes : state.dishes,
+          comments : state.comments ,
+          promotions : state.promotions ,
+          leaders : state.leaders ,
+      
+      }  
+}
+
+const mapDispatchToProps = (dispatch)=>({
+      addComment : (dishId , rating , author , comment )=> dispatch(addComment(dishId , rating , author , comment )),
+      fetchDishes : ()=> { dispatch(fetchDishes())}
+})
 
 class Main extends React.Component {
 
     constructor(props) {
-        console.log("constractor Main")
+        console.log("constractor Main : " , props)
         super(props);
-        this.state = {
-            dishes: Dishes,
-            comments : Comments ,
-            promotions : Promotions ,
-            leaders : Leaders ,
-        }
     }
+    
+    componentDidMount() {
+        this.props.fetchDishes()
+    }
+
     static getDerivedStateFromProps() {
         console.log('get drive Main')
         return null
@@ -33,30 +45,28 @@ class Main extends React.Component {
         console.log('should update Main')
         return true;
     }
-    // onDishSelect(dishId) {
-    //     this.setState({
-    //         selectDish: dishId
-    //     })
-    // }
-    
 
-   
     render() {
-        
+        console.log("render Main")
         const DishWithID = ({match})=>{
-            console.log(match)
+            console.log( "i lnk match",this.props)
             return(
-                <DishDetail dish={this.state.dishes.filter((dish)=> dish.id === match.params.amin)[0]} 
-                            comments = { this.state.comments.filter((comment)=> comment.dishId === parseInt(match.params.amin , 10))}
+                <DishDetail dish={this.props.dishes.dishes.filter((dish)=> dish.id === match.params.amin)[0]} 
+                            dishesLoading={this.props.dishes.isLoading} 
+                            dishesErrMess = {this.props.dishes.errMess}
+                            comments = { this.props.comments.filter((comment)=> comment.dishId === parseInt(match.params.amin , 10))}
+                            addComment = {this.props.addComment}
                 />
             )
         }
-        console.log("render Main")
+        
         const HomePage = ()=>{
              return(
-                 <Home dish={this.state.dishes.filter((dish)=> dish.featured )[0]}
-                       promotion={this.state.promotions.filter((pro)=> pro.featured )[0]}
-                       leader={this.state.leaders.filter((leder)=> leder.featured )[0]}
+                 <Home dish={this.props.dishes.dishes.filter((dish)=> dish.featured )[0]}
+                       dishesLoading={this.props.dishes.isLoading} 
+                       dishesErrMess = {this.props.dishes.errMess}
+                       promotion={this.props.promotions.filter((pro)=> pro.featured )[0]}
+                       leader={this.props.leaders.filter((leder)=> leder.featured )[0]}
                 />
              )
         }
@@ -65,10 +75,10 @@ class Main extends React.Component {
                 <Header/>
                   <Switch>
                       <Route path="/home"  component={HomePage}/>
-                      <Route exact path="/menu" exact component={()=> <Menu dishes={this.state.dishes}/>} />
+                      <Route exact path="/menu" exact component={()=> <Menu dishes={this.props.dishes}/>} />
                       <Route path="/menu/:amin" component={DishWithID}/>
                       <Route exact path="/ContactUS" component={Contact} />
-                      <Route path="/AboutUS" component={()=> <AboutUs leaders = {this.state.leaders} />} />
+                      <Route path="/AboutUS" component={()=> <AboutUs leaders = {this.props.leaders} />} />
                       <Redirect  to="/home"/>
                   </Switch>
                 
@@ -84,9 +94,7 @@ class Main extends React.Component {
     componentDidUpdate(){
         console.log('component did update Main')
     }
-    componentDidMount() {
-        console.log("did mount Main")
-    }
+  
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Main));
