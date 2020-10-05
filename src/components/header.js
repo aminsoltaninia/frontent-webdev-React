@@ -45,7 +45,9 @@ class Header extends React.Component{
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav.bind(this)}></NavbarToggler>
                         <NavbarBrand className="mr-auto" href="/">
-                            <img height="30" width="41" src="https://fantoni.sadernama.com/wp-content/uploads/2019/02/logo-fantoni.png"/>
+                            <img height="30" width="41" 
+                                 src="https://fantoni.sadernama.com/wp-content/uploads/2019/02/logo-fantoni.png"
+                                 alt="logo"/>
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>

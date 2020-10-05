@@ -20,7 +20,7 @@ class FormComment extends React.Component{
     }
     handdleSubmit(values) {
         this.toggleModal(); 
-        this.props.addComment(this.props.dishId , values.rate , values.name , values.comment)
+        this.props.postComment(this.props.dishId , values.rate , values.name , values.comment)
    }
    toggleModal(){
       this.setState ({
@@ -148,13 +148,6 @@ class FormComment extends React.Component{
 
 class Comment extends React.Component{
      
-    constructor(props){
-        super(props);
-        
-    }
-    
- 
-
      static getDerivedStateFromProps() {
         console.log('get drive Comment')
         return null;
@@ -184,7 +177,7 @@ class Comment extends React.Component{
             <div className="col-12 col-md-5 ml-5">
                      <h1>Comments</h1>
                     {comments}
-                    <FormComment dishId={this.props.dishId} addComment={this.props.addComment}/>
+                    <FormComment dishId={this.props.dishId} postComment={this.props.postComment}/>
                     
             </div>
            

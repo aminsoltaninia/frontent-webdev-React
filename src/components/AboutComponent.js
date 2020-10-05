@@ -5,11 +5,6 @@ import {Link} from 'react-router-dom';
 
 class AboutUs extends React.Component {
 
-    constructor(props) {
-        super(props)
-    }
-
-
     render() {
         console.log(this.props)
         const leaders = this.props.leaders.map((leader) => {

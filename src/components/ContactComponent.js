@@ -1,7 +1,7 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row} from 'reactstrap';
 import { Link } from 'react-router-dom';
-import {Control , LocalForm , Errors } from 'react-redux-form'
+import {Control , Form , Errors  } from 'react-redux-form'
 
 
 
@@ -19,7 +19,9 @@ class Contact extends React.Component {
     }
 
     handdleSubmit(values) {
-        console.log("current state : ", JSON.stringify(values))
+        console.log("current state : " + JSON.stringify(values))
+        alert("curent state : " + JSON.stringify(values))
+        this.props.resetFeedbackForm()
     }
 
     render() {
@@ -55,9 +57,9 @@ class Contact extends React.Component {
                             <i className="fa fa-envelope"></i>
                         </address>
                         <div className="btn-group" role="group">
-                            <a role="button" className="btn btn-success" href=""><i className="fa fa-phone"></i> Call</a>
-                            <a role="button" className="btn btn-info" href=""><i className="fa fa-skype"></i>Skype</a>
-                            <a role="button" className="btn btn-primary" href=""><i className="fa fa-envelope"></i>Email</a>
+                            <a role="button" className="btn btn-success" href="www.fantonistore.com"><i className="fa fa-phone"></i> Call</a>
+                            <a role="button" className="btn btn-info" href="www.fantonistore.com"><i className="fa fa-skype"></i>Skype</a>
+                            <a role="button" className="btn btn-primary" href="www.fantonistore.com"><i className="fa fa-envelope"></i>Email</a>
                         </div>
                     </div>
                     <div className="col col-sm col-md align-items-center">
@@ -69,7 +71,7 @@ class Contact extends React.Component {
                         <h3>feedback</h3>
                     </div>
                     <div className="col-12 col-sm-9">
-                        <LocalForm onSubmit={(values)=> this.handdleSubmit(values)}>
+                        <Form model="feedback" onSubmit={(values)=> this.handdleSubmit(values)}>
                             <Row className="form-group">
                                 <Label htmlFor="firstname" md={2}>
                                     Firs name :
@@ -237,7 +239,7 @@ class Contact extends React.Component {
                                     <Button type="submit" className="btn btn-primary">Submit</Button>
                                 </Col>
                             </Row>
-                        </LocalForm>
+                        </Form>
                     </div>
 
                 </div>

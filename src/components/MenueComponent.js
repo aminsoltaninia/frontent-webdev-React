@@ -2,7 +2,8 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle , Breadcrumb , BreadcrumbItem } from 'reactstrap'
 import {Link} from 'react-router-dom';
-import {Loading} from './LoadingComponent'
+import {Loading} from './LoadingComponent';
+import {baseUrl} from '../shared/baseUrl'
 
 // class Menu extends React.Component {
 
@@ -74,7 +75,7 @@ function RenderMenuComponent({dish}){
         <Card>
               
               
-              <CardImg width="100%" height="100%" src={dish.image} alt={dish.name} />
+              <CardImg width="100%" height="100%" src={baseUrl+dish.image} alt={dish.name} />
 
 
               <CardImgOverlay >

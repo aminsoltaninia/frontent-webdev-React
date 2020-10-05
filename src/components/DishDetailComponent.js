@@ -2,7 +2,8 @@ import React from 'react';
 import Comment from './CommentComponent'
 import { Card, CardImg,  CardText, CardBody, CardTitle, Breadcrumb , BreadcrumbItem  } from 'reactstrap';
 import {Link} from 'react-router-dom';
-import {Loading} from './LoadingComponent'
+import {Loading} from './LoadingComponent';
+import { baseUrl} from '../shared/baseUrl';
 
 // class DishDetail extends React.Component{
 
@@ -76,8 +77,8 @@ import {Loading} from './LoadingComponent'
 // }
 
 function DishDetail(props){
-    console.log(props)
-    const renderDish = (dish ,props ,comments,addComment)=>{
+    console.log("props in dishh detail :" , props)
+    const renderDish = (dish ,props ,comments,postComment)=>{
         if(props.dishesLoading) {
             return (
                  <div className="container">
@@ -104,7 +105,7 @@ function DishDetail(props){
                       <div className="row">
                         <Card className="col-12 col-md-5 m-1" >
 
-                            <CardImg width="100%" src={dish.image} alt={dish.name} />
+                            <CardImg width="100%" src={baseUrl+dish.image} alt={dish.name} />
                             <CardBody>
                                 <CardTitle>{dish.name}</CardTitle>
                                 <CardText>{dish.description}</CardText>
@@ -114,7 +115,7 @@ function DishDetail(props){
                         <Comment  selectedCom={comments} 
                                   Loading={props.dishesLoading} 
                                   ErrMess = {props.dishesErrMess}
-                                  addComment={addComment} dishId = {dish.id}/>
+                                  postComment={postComment} dishId = {dish.id}/>
                     </div>
                 
                 
@@ -145,7 +146,7 @@ function DishDetail(props){
                </div>
             </div>
            
-            {renderDish(props.dish, props , props.comments , props.addComment)}
+            {renderDish(props.dish, props , props.comments , props.postComment)}
         </div>
     )
 }

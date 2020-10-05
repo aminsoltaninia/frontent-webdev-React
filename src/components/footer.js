@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {Link, link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function Footer(props) {
     return (
@@ -30,11 +30,11 @@ function Footer(props) {
                     </div>
                     <div className="col-12 col-sm-4 align-self-center">
                                     <div className="text-center">
-                                        <a className="btn btn-social-icon btn-google" href=""><i className="fa fa-google-plus"></i></a>
-                                        <a className="btn btn-social-icon" href=""><i className="fa fa-facebook"></i></a>
-                                        <a className="btn btn-social-icon" href=""><i className="fa fa-twitter"></i></a>
-                                        <a className="btn btn-social-icon btn-instagram" href=""><i className="fa fa-instagram"></i></a>
-                                        <a className="btn btn-social-icon" href=""><i className="fa fa-linkedin"></i></a>
+                                        <a className="btn btn-social-icon btn-google" href="www.fantonistore.com"><i className="fa fa-google-plus"></i></a>
+                                        <a className="btn btn-social-icon" href="www.fantonistore.com"><i className="fa fa-facebook"></i></a>
+                                        <a className="btn btn-social-icon" href="www.fantonistore.com"><i className="fa fa-twitter"></i></a>
+                                        <a className="btn btn-social-icon btn-instagram" href="www.fantonistore.com"><i className="fa fa-instagram"></i></a>
+                                        <a className="btn btn-social-icon" href="www.fantonistore.com"><i className="fa fa-linkedin"></i></a>
                                     </div>
                     </div>
                 </div>
